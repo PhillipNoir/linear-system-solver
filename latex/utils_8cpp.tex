@@ -1,0 +1,85 @@
+\doxysection{utils.\+cpp File Reference}
+\hypertarget{utils_8cpp}{}\label{utils_8cpp}\index{utils.cpp@{utils.cpp}}
+
+
+Modulacización de funciones que se repiten o pueden repetirse.  
+
+
+{\ttfamily \#include "{}Matrix.\+hpp"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include "{}Methods.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{utils_8cpp_ae077156ca17b1535d688dbd056d89563}{forward\+Elimination}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&A, \mbox{\hyperlink{class_matrix}{Matrix}} \&b, bool mostrar\+Pasos)
+\begin{DoxyCompactList}\small\item\em Realiza la eliminación hacia adelante (triangulación) del sistema Ax = b. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8cpp_a5b49a23f3e35450010731769a09fdeea}{backward\+Elimination}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&A, \mbox{\hyperlink{class_matrix}{Matrix}} \&b, bool mostrar\+Pasos)
+\begin{DoxyCompactList}\small\item\em Realiza la eliminación hacia atrás y normalización de pivotes en la matriz A. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Modulacización de funciones que se repiten o pueden repetirse. 
+
+Este archivo contiene la declaración de las funciones forward\+Elimination y backward elimination, las cuales, son usadas en los métodos de solución de sistemas lineales implementados en este programa.
+
+Este archivo contiene la llamada de las funciones forward\+Elimination y backward elimination, las cuales, son usadas en los métodos de solución de sistemas lineales implementados en este programa. 
+
+\label{doc-func-members}
+\Hypertarget{utils_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{utils_8cpp_a5b49a23f3e35450010731769a09fdeea}\index{utils.cpp@{utils.cpp}!backwardElimination@{backwardElimination}}
+\index{backwardElimination@{backwardElimination}!utils.cpp@{utils.cpp}}
+\doxysubsubsection{\texorpdfstring{backwardElimination()}{backwardElimination()}}
+{\footnotesize\ttfamily \label{utils_8cpp_a5b49a23f3e35450010731769a09fdeea} 
+void backward\+Elimination (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{A}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{b}{, }\item[{bool}]{mostrar\+Pasos}{}\end{DoxyParamCaption})}
+
+
+
+Realiza la eliminación hacia atrás y normalización de pivotes en la matriz A. 
+
+Esta función convierte A en una matriz identidad (forma reducida por filas) mediante eliminación hacia atrás y normalización de pivotes. Es el paso final del método de Gauss-\/\+Jordan.
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & Matriz de coeficientes (modificada). \\
+\hline
+{\em b} & Vector columna de términos independientes (modificado). \\
+\hline
+{\em mostrar\+Pasos} & Si es verdadero, imprime los pasos si el sistema es pequeño.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & Si se detectan pivotes demasiado pequeños o inconsistencias numéricas. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{utils_8cpp_ae077156ca17b1535d688dbd056d89563}\index{utils.cpp@{utils.cpp}!forwardElimination@{forwardElimination}}
+\index{forwardElimination@{forwardElimination}!utils.cpp@{utils.cpp}}
+\doxysubsubsection{\texorpdfstring{forwardElimination()}{forwardElimination()}}
+{\footnotesize\ttfamily \label{utils_8cpp_ae077156ca17b1535d688dbd056d89563} 
+void forward\+Elimination (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{A}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{b}{, }\item[{bool}]{mostrar\+Pasos}{}\end{DoxyParamCaption})}
+
+
+
+Realiza la eliminación hacia adelante (triangulación) del sistema Ax = b. 
+
+Esta función aplica el método de eliminación de Gauss para convertir la matriz A en una forma triangular superior, modificando también el vector columna b. Detecta sistemas inconsistentes o numéricamente inestables.
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & Matriz de coeficientes (modificada en el proceso). \\
+\hline
+{\em b} & Vector columna de términos independientes (modificado en el proceso). \\
+\hline
+{\em mostrar\+Pasos} & Si es verdadero, imprime cada paso si el sistema es pequeño (≤ 10 ecuaciones).\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & Si el sistema es numéricamente inestable o inconsistente. \\
+\hline
+\end{DoxyExceptions}

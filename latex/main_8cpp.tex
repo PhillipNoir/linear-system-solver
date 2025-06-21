@@ -1,0 +1,64 @@
+\doxysection{main.\+cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+Punto de entrada del programa para resolver un sistema de ecuaciones lineales usando eliminación de Gauss.  
+
+
+{\ttfamily \#include "{}Matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}Methods.\+hpp"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include "{}menu.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Función principal del programa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Punto de entrada del programa para resolver un sistema de ecuaciones lineales usando eliminación de Gauss. 
+
+\hypertarget{_methods_8cpp_features_sec}{}\doxysubsection{\texorpdfstring{Características Principales}{Características Principales}}\label{_methods_8cpp_features_sec}
+
+\begin{DoxyItemize}
+\item Llenado manual del sistema, lo que permite una personalización total para el problema que desee el usuario
+\item Uso de arreglos dinámicos para la creación y manipulación de matrices, lo que permite correr el programa en cualquier equipo
+\item Elección del método libre para el usuario
+\item Interfaz de menú intuitiva
+\end{DoxyItemize}\hypertarget{main_8cpp_usage_sec}{}\doxysubsection{\texorpdfstring{Modo de Uso}{Modo de Uso}}\label{main_8cpp_usage_sec}
+
+\begin{DoxyEnumerate}
+\item Ejecutar el programa
+\item Llenar la matriz
+\item Seleccionar el método de resolución
+\item Se retorna la matriz de resultado
+\end{DoxyEnumerate}
+
+\begin{DoxyAuthor}{Author}
+\mbox{[}Sergio Felipe Gonzalez Cruz\mbox{]} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+\mbox{[}5 de junio de 2025\mbox{]} 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{main_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Función principal del programa. 
+
+Llama a la función {\ttfamily menu\+Principal()} que gestiona la interacción con el usuario para resolver sistemas de ecuaciones lineales mediante los métodos de Gauss y Gauss-\/\+Jordan.
+
+\begin{DoxyReturn}{Returns}
+int Código de salida del programa (0 si finaliza correctamente). 
+\end{DoxyReturn}

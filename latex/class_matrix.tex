@@ -1,0 +1,177 @@
+\doxysection{Matrix Class Reference}
+\hypertarget{class_matrix}{}\label{class_matrix}\index{Matrix@{Matrix}}
+
+
+Clase que representa una matriz dinámica de tamaño variable.  
+
+
+
+
+{\ttfamily \#include $<$Matrix.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix_a07a3cee5bc286ca27ceffe81ce5a2d01}{Matrix}} (int r, int c)
+\begin{DoxyCompactList}\small\item\em Constructor de la matriz. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_matrix_ad1b2433d295efcbf371e6f636db757e9}{get\+Rows}} () const
+\begin{DoxyCompactList}\small\item\em Devuelve el número de filas de la matriz. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_matrix_aeaa8f587023f3347eeb2b5d38cfc4665}{get\+Cols}} () const
+\begin{DoxyCompactList}\small\item\em Devuelve el número de columnas de la matriz. \end{DoxyCompactList}\item 
+double \& \mbox{\hyperlink{class_matrix_ae65709499d45b497e49b201836970780}{at}} (int row, int col)
+\begin{DoxyCompactList}\small\item\em Acceso seguro a un elemento de la matriz con verificación de límites. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_matrix_ac011b9d02d6f631828578cddf20be834}{fill\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Llena la matriz con valores ingresados por el usuario desde la consola. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_matrix_abad4f764e17de0076ecdd89ffd1dbf50}{print}} () const
+\begin{DoxyCompactList}\small\item\em Imprime la matriz en la consola con un formato tabulado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase que representa una matriz dinámica de tamaño variable. 
+
+Esta clase permite crear matrices de tamaño definido en tiempo de ejecución, acceder y modificar sus valores mediante el método \textquotesingle{}at\textquotesingle{}, y realizar operaciones básicas, como impresion y llenado manual. Utiliza punteros inteligentes ({\ttfamily std\+::unique\+\_\+ptr}) para gestionar la memoria de forma segura. 
+
+\label{doc-constructors}
+\Hypertarget{class_matrix_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_matrix_a07a3cee5bc286ca27ceffe81ce5a2d01}\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}}
+{\footnotesize\ttfamily \label{class_matrix_a07a3cee5bc286ca27ceffe81ce5a2d01} 
+Matrix\+::\+Matrix (\begin{DoxyParamCaption}\item[{int}]{r}{, }\item[{int}]{c}{}\end{DoxyParamCaption})}
+
+
+
+Constructor de la matriz. 
+
+Constructor de la clase \doxylink{class_matrix}{Matrix}.
+
+Asigna dinamicamente la memoria para una matriz de tamaño {\ttfamily rows} x {\ttfamily cols}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Número de filas. \\
+\hline
+{\em c} & Número de columnas.\\
+\hline
+\end{DoxyParams}
+Crea una matriz de dimensiones dadas, asignando memoria dinámica utilizando {\ttfamily std\+::unique\+\_\+ptr}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Número de filas. \\
+\hline
+{\em c} & Número de columnas. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_matrix_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_matrix_ae65709499d45b497e49b201836970780}\index{Matrix@{Matrix}!at@{at}}
+\index{at@{at}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily \label{class_matrix_ae65709499d45b497e49b201836970780} 
+double \& Matrix\+::at (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption})}
+
+
+
+Acceso seguro a un elemento de la matriz con verificación de límites. 
+
+Accede (con verificación de límites) a un elemento de la matriz.
+
+Devuelve una referencia al elemento en la posición indicada. Lanza {\ttfamily std\+::out\+\_\+of\+\_\+range} si los índices exceden los límites.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Índice de fila (0 \texorpdfstring{$<$}{<}= row \texorpdfstring{$<$}{<} rows). \\
+\hline
+{\em col} & Índice de columna (0 \texorpdfstring{$<$}{<}= col \texorpdfstring{$<$}{<} cols). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double\& Referencia al elemento solicitado.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & Si los índices están fuera de rango.\\
+\hline
+\end{DoxyExceptions}
+Devuelve una referencia al elemento en la posición indicada. Lanza una excepción si los índices están fuera de rango.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Fila del elemento. \\
+\hline
+{\em col} & Columna del elemento. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double\& Referencia al elemento solicitado.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & Si los índices están fuera de los límites de la matriz. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_matrix_ac011b9d02d6f631828578cddf20be834}\index{Matrix@{Matrix}!fillMatrix@{fillMatrix}}
+\index{fillMatrix@{fillMatrix}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{fillMatrix()}{fillMatrix()}}
+{\footnotesize\ttfamily \label{class_matrix_ac011b9d02d6f631828578cddf20be834} 
+void Matrix\+::fill\+Matrix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Llena la matriz con valores ingresados por el usuario desde la consola. 
+
+Llena la matriz con datos ingresados por el usuario desde consola.
+
+Solicita al usuario cada elemento de la matriz, indicando su posición.
+
+Solicita cada elemento individualmente e imprime su posición para facilitar el ingreso. \Hypertarget{class_matrix_aeaa8f587023f3347eeb2b5d38cfc4665}\index{Matrix@{Matrix}!getCols@{getCols}}
+\index{getCols@{getCols}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{getCols()}{getCols()}}
+{\footnotesize\ttfamily \label{class_matrix_aeaa8f587023f3347eeb2b5d38cfc4665} 
+int Matrix\+::get\+Cols (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Devuelve el número de columnas de la matriz. 
+
+\begin{DoxyReturn}{Returns}
+Número de columnas 
+\end{DoxyReturn}
+\Hypertarget{class_matrix_ad1b2433d295efcbf371e6f636db757e9}\index{Matrix@{Matrix}!getRows@{getRows}}
+\index{getRows@{getRows}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{getRows()}{getRows()}}
+{\footnotesize\ttfamily \label{class_matrix_ad1b2433d295efcbf371e6f636db757e9} 
+int Matrix\+::get\+Rows (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Devuelve el número de filas de la matriz. 
+
+\begin{DoxyReturn}{Returns}
+Número de filas 
+\end{DoxyReturn}
+\Hypertarget{class_matrix_abad4f764e17de0076ecdd89ffd1dbf50}\index{Matrix@{Matrix}!print@{print}}
+\index{print@{print}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \label{class_matrix_abad4f764e17de0076ecdd89ffd1dbf50} 
+void Matrix\+::print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Imprime la matriz en la consola con un formato tabulado. 
+
+Imprime la matriz en consola con formato.
+
+Utiliza {\ttfamily std\+::setw} para alinear columnas y mostrar la matriz de manera legible.
+
+Utiliza {\ttfamily std\+::setw} para alinear columnas y mostrar la matriz de forma legible. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_matrix_8hpp}{Matrix.\+hpp}}\item 
+\mbox{\hyperlink{_matrix_8cpp}{Matrix.\+cpp}}\end{DoxyCompactItemize}

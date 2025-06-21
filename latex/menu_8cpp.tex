@@ -1,0 +1,41 @@
+\doxysection{menu.\+cpp File Reference}
+\hypertarget{menu_8cpp}{}\label{menu_8cpp}\index{menu.cpp@{menu.cpp}}
+
+
+Muestra el menú principal del programa y gestiona la interacción con el usuario.  
+
+
+{\ttfamily \#include "{}Matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}Methods.\+hpp"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include "{}menu.\+hpp"{}}\newline
+{\ttfamily \#include "{}validations.\+hpp"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{menu_8cpp_adfbaa271f44d828c6a42ce7e9affee88}\label{menu_8cpp_adfbaa271f44d828c6a42ce7e9affee88} 
+void {\bfseries menu\+Principal} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Muestra el menú principal del programa y gestiona la interacción con el usuario. 
+
+Permite al usuario resolver sistemas de ecuaciones lineales utilizando los métodos de\+:
+\begin{DoxyItemize}
+\item Eliminación de Gauss
+\item Eliminación de Gauss-\/\+Jordan
+\end{DoxyItemize}
+
+El usuario puede\+:
+\begin{DoxyItemize}
+\item Ingresar el tamaño del sistema
+\item Proporcionar los coeficientes (matriz A) y el vector independiente (b)
+\item Elegir si desea ver los pasos intermedios de la solución
+\item Ver el resultado del sistema resuelto
+\item Salir del programa
+\end{DoxyItemize}
+
+La función se ejecuta en un bucle hasta que el usuario selecciona la opción de salir. 

@@ -1,0 +1,112 @@
+\doxysection{validations.\+cpp File Reference}
+\hypertarget{validations_8cpp}{}\label{validations_8cpp}\index{validations.cpp@{validations.cpp}}
+
+
+Implenmentación de diferentes validaciones para mejorar la robustez y estabilidad del programa.  
+
+
+{\ttfamily \#include "{}Matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}Methods.\+hpp"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}menu.\+hpp"{}}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{validations_8cpp_a31cf8c9de552002e34a3934a0abc3fdf}{advertencia\+Sistema\+Grande}} (int size)
+\begin{DoxyCompactList}\small\item\em Muestra una advertencia si el sistema de ecuaciones es muy grande. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{validations_8cpp_ab0fac153f86ddee1f68854faf701356a}{leer\+Entero}} (const std\+::string \&mensaje)
+\begin{DoxyCompactList}\small\item\em Solicita y valida la entrada de un número entero desde consola. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{validations_8cpp_aee648c754501c51d17bafe4756fb104c}{leer\+Decimal}} (const std\+::string \&mensaje)
+\begin{DoxyCompactList}\small\item\em Solicita y valida la entrada de un número decimal (double) desde consola. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{validations_8cpp_a121c13bae2caf132cf1763c177047c9a}{leer\+Booleano}} (const std\+::string \&mensaje)
+\begin{DoxyCompactList}\small\item\em Solicita al usuario una entrada booleana (1 o 0) y la valida. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implenmentación de diferentes validaciones para mejorar la robustez y estabilidad del programa. 
+
+Este archivo contiene la declaración de 3 funciones quue evitan que el usuario ingrese entradas incorrectas para el tipo de dato esperado y una para lanzar una advertencia en caso de que el usuario ingrese un sistema cuya magnitud comprometa la estabilidad del sistema si se muestran los pasos. 
+
+\label{doc-func-members}
+\Hypertarget{validations_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{validations_8cpp_a31cf8c9de552002e34a3934a0abc3fdf}\index{validations.cpp@{validations.cpp}!advertenciaSistemaGrande@{advertenciaSistemaGrande}}
+\index{advertenciaSistemaGrande@{advertenciaSistemaGrande}!validations.cpp@{validations.cpp}}
+\doxysubsubsection{\texorpdfstring{advertenciaSistemaGrande()}{advertenciaSistemaGrande()}}
+{\footnotesize\ttfamily \label{validations_8cpp_a31cf8c9de552002e34a3934a0abc3fdf} 
+void advertencia\+Sistema\+Grande (\begin{DoxyParamCaption}\item[{int}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Muestra una advertencia si el sistema de ecuaciones es muy grande. 
+
+Si el número de ecuaciones es mayor o igual a 11, se recomienda al usuario no mostrar pasos para evitar sobrecargar la salida en consola.
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Número de ecuaciones del sistema. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{validations_8cpp_a121c13bae2caf132cf1763c177047c9a}\index{validations.cpp@{validations.cpp}!leerBooleano@{leerBooleano}}
+\index{leerBooleano@{leerBooleano}!validations.cpp@{validations.cpp}}
+\doxysubsubsection{\texorpdfstring{leerBooleano()}{leerBooleano()}}
+{\footnotesize\ttfamily \label{validations_8cpp_a121c13bae2caf132cf1763c177047c9a} 
+bool leer\+Booleano (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{mensaje}{}\end{DoxyParamCaption})}
+
+
+
+Solicita al usuario una entrada booleana (1 o 0) y la valida. 
+
+Esta función valida que el usuario ingrese 1 (true) o 0 (false). Repite la solicitud hasta obtener una entrada válida.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mensaje} & Mensaje que se muestra al usuario para solicitar la entrada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si el usuario ingresa 1, false si ingresa 0. 
+\end{DoxyReturn}
+\Hypertarget{validations_8cpp_aee648c754501c51d17bafe4756fb104c}\index{validations.cpp@{validations.cpp}!leerDecimal@{leerDecimal}}
+\index{leerDecimal@{leerDecimal}!validations.cpp@{validations.cpp}}
+\doxysubsubsection{\texorpdfstring{leerDecimal()}{leerDecimal()}}
+{\footnotesize\ttfamily \label{validations_8cpp_aee648c754501c51d17bafe4756fb104c} 
+double leer\+Decimal (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{mensaje}{}\end{DoxyParamCaption})}
+
+
+
+Solicita y valida la entrada de un número decimal (double) desde consola. 
+
+La función seguirá solicitando al usuario hasta que se ingrese un valor decimal válido.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mensaje} & Mensaje que se muestra al usuario para solicitar la entrada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un número decimal ingresado correctamente. 
+\end{DoxyReturn}
+\Hypertarget{validations_8cpp_ab0fac153f86ddee1f68854faf701356a}\index{validations.cpp@{validations.cpp}!leerEntero@{leerEntero}}
+\index{leerEntero@{leerEntero}!validations.cpp@{validations.cpp}}
+\doxysubsubsection{\texorpdfstring{leerEntero()}{leerEntero()}}
+{\footnotesize\ttfamily \label{validations_8cpp_ab0fac153f86ddee1f68854faf701356a} 
+int leer\+Entero (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{mensaje}{}\end{DoxyParamCaption})}
+
+
+
+Solicita y valida la entrada de un número entero desde consola. 
+
+La función seguirá solicitando al usuario hasta que se ingrese un valor entero válido.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mensaje} & Mensaje que se muestra al usuario para solicitar la entrada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un número entero ingresado correctamente. 
+\end{DoxyReturn}

@@ -1,0 +1,120 @@
+\doxysection{Methods.\+cpp File Reference}
+\hypertarget{_methods_8cpp}{}\label{_methods_8cpp}\index{Methods.cpp@{Methods.cpp}}
+
+
+Implementación de diferentes métodos numéricos para resolver sistemas de ecuaciones lineales.  
+
+
+{\ttfamily \#include "{}Methods.\+hpp"{}}\newline
+{\ttfamily \#include "{}Matrix.\+hpp"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include "{}utils.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_methods_8cpp_aeffe6d8cc00cd294acb729600b2137a9}{imprimir\+Sistema}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&A, \mbox{\hyperlink{class_matrix}{Matrix}} \&b)
+\begin{DoxyCompactList}\small\item\em Imprime el sistema de ecuaciones lineales en forma matricial. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{_methods_8cpp_abd3f1943e00eb80d713d18bf0dd2a025}{gauss\+Elimination}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&A, \mbox{\hyperlink{class_matrix}{Matrix}} \&b, bool mostrar\+Pasos)
+\begin{DoxyCompactList}\small\item\em Resuelve un sistema de ecuaciones lineales mediante el método de eliminación de Gauss con pivoteo parcial. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{_methods_8cpp_ad28871946bdc03c7496604eefaf4b809}{gauss\+Jordan\+Elimination}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&A, \mbox{\hyperlink{class_matrix}{Matrix}} \&b, bool mostrar\+Pasos)
+\begin{DoxyCompactList}\small\item\em Resuelve un sistema de ecuaciones lineales mediante el método de eliminación de Gauss-\/\+Jordan con pivoteo parcial. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementación de diferentes métodos numéricos para resolver sistemas de ecuaciones lineales. 
+
+\hypertarget{_methods_8cpp_features_sec}{}\doxysubsection{\texorpdfstring{Características Principales}{Características Principales}}\label{_methods_8cpp_features_sec}
+-\/Método de eliminación de Gauss. -\/Método de Gauss-\/\+Jordan. 
+
+\label{doc-func-members}
+\Hypertarget{_methods_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_methods_8cpp_abd3f1943e00eb80d713d18bf0dd2a025}\index{Methods.cpp@{Methods.cpp}!gaussElimination@{gaussElimination}}
+\index{gaussElimination@{gaussElimination}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{gaussElimination()}{gaussElimination()}}
+{\footnotesize\ttfamily \label{_methods_8cpp_abd3f1943e00eb80d713d18bf0dd2a025} 
+std\+::vector$<$ double $>$ gauss\+Elimination (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{A}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{b}{, }\item[{bool}]{mostrar\+Pasos}{}\end{DoxyParamCaption})}
+
+
+
+Resuelve un sistema de ecuaciones lineales mediante el método de eliminación de Gauss con pivoteo parcial. 
+
+Este método transforma la matriz A en una matriz triangular superior utilizando eliminación hacia adelante, luego resuelve el sistema triangular resultante mediante sustitución regresiva.
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & Matriz de coeficientes del sistema (modificada durante la ejecución). \\
+\hline
+{\em b} & Vector columna de términos independientes (modificado durante la ejecución). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$double$>$ Vector solución del sistema.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & Si el sistema no tiene solución única (pivote cero en la diagonal). \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{_methods_8cpp_ad28871946bdc03c7496604eefaf4b809}\index{Methods.cpp@{Methods.cpp}!gaussJordanElimination@{gaussJordanElimination}}
+\index{gaussJordanElimination@{gaussJordanElimination}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{gaussJordanElimination()}{gaussJordanElimination()}}
+{\footnotesize\ttfamily \label{_methods_8cpp_ad28871946bdc03c7496604eefaf4b809} 
+std\+::vector$<$ double $>$ gauss\+Jordan\+Elimination (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{A}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{b}{, }\item[{bool}]{mostrar\+Pasos}{}\end{DoxyParamCaption})}
+
+
+
+Resuelve un sistema de ecuaciones lineales mediante el método de eliminación de Gauss-\/\+Jordan con pivoteo parcial. 
+
+Resuelve un sistema de ecuaciones lineales mediante el método de Gauss-\/\+Jordan.
+
+Este método transforma la matriz A en una matriz diagonal utilizando eliminación hacia adelante y atrás, lo que nos entrega el vector solución de forma directa.
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & Matriz de coeficientes del sistema (modificada durante la ejecución). \\
+\hline
+{\em b} & Vector columna de términos independientes (modificado durante la ejecución). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$double$>$ Vector solución del sistema.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & Si el sistema no tiene solución única (pivote cero en la diagonal). \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{_methods_8cpp_aeffe6d8cc00cd294acb729600b2137a9}\index{Methods.cpp@{Methods.cpp}!imprimirSistema@{imprimirSistema}}
+\index{imprimirSistema@{imprimirSistema}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{imprimirSistema()}{imprimirSistema()}}
+{\footnotesize\ttfamily \label{_methods_8cpp_aeffe6d8cc00cd294acb729600b2137a9} 
+void imprimir\+Sistema (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{A}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Imprime el sistema de ecuaciones lineales en forma matricial. 
+
+Imprime un sistema de ecuaciones lineales en forma matricial.
+
+Esta función muestra en consola la matriz de coeficientes {\ttfamily A} y el vector de constantes {\ttfamily b} en forma de sistema ampliado (matriz aumentada), alineando los valores para mayor legibilidad.
+
+Por ejemplo, imprime una salida como esta\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{2\ \ \ \ \ \ \ \ \ -\/1\ \ \ \ \ \ \ \ \ 3\ |\ \ \ \ \ \ \ \ \ 9}
+\DoxyCodeLine{1\ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ -\/2\ |\ \ \ \ \ \ \ \ \ 3}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & Matriz de coeficientes del sistema de ecuaciones (tipo \doxylink{class_matrix}{Matrix}). \\
+\hline
+{\em b} & Vector columna con los términos independientes (tipo \doxylink{class_matrix}{Matrix}). \\
+\hline
+\end{DoxyParams}
