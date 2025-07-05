@@ -146,3 +146,71 @@ void backwardElimination(Matrix& A, Matrix& b, bool mostrarPasos){
         }
     }
 }
+
+/**
+ * @brief Calcula la suma de los elementos de una fila de la matriz A, excluyendo el elemento diagonal.
+ *
+ * Esta función se utiliza en el método iterativo de Jacobi para calcular la suma de los productos
+ * de los coeficientes por los valores de la solución, excluyendo el término diagonal.
+ *
+ * @param A Matriz de coeficientes del sistema.
+ * @param vectorSolucion Vector solución actual.
+ * @param i Índice de la fila actual.
+ * @return double Suma de los productos excluyendo el término diagonal.
+ */
+double sumaSinDiagonal(Matrix& A, const std::vector<double>& vectorSolucion, int i) {
+    double suma = 0.0;
+    int rows = A.getRows();
+    for(int j = 0; j < rows; j++) {
+        if (j != i) { // Excluir la diagonal
+            suma += A.at(i, j) * vectorSolucion[j];
+        }
+    }
+    return suma;
+}
+
+/**
+ * @brief Calcula el error entre dos vectores de solución.
+ *
+ * Esta función calcula la suma de las diferencias absolutas entre los elementos
+ * de dos vectores de solución, lo que se utiliza para verificar la convergencia
+ * en métodos iterativos como Jacobi y Gauss-Seidel.
+ *
+ * @param vectorSolucion Vector solución actual.
+ * @param vectorSolucionAnterior Vector solución anterior.
+ * @return double El error máximo entre los dos vectores.
+ */
+double calcularError(const std::vector<double>& vectorSolucion, const std::vector<double>& vectorSolucionAnterior) {
+    double maxError = 0.0;
+    for (size_t i = 0; i < vectorSolucion.size(); i++) {
+        maxError += std::abs(vectorSolucion[i] - vectorSolucionAnterior[i]);
+    }
+    return maxError;
+}
+
+/**
+ * @brief Verifica si una matriz es diagonal dominante.
+ *
+ * Esta función comprueba si una matriz es diagonal dominante, lo que es una condición necesaria
+ * para la convergencia de algunos métodos iterativos como Jacobi y Gauss-Seidel.
+ *
+ * @param A Matriz a verificar.
+ * @return true Si la matriz es diagonal dominante.
+ * @return false Si la matriz no es diagonal dominante.
+ */
+bool esDiagonalDominante(Matrix& A) {
+    int rows = A.getRows();
+    for (int i = 0; i < rows; i++) {
+        double diagonal = std::abs(A.at(i, i));
+        double suma = 0.0;
+        for (int j = 0; j < rows; j++) {
+            if (i != j) {
+                suma += std::abs(A.at(i, j));
+            }
+        }
+        if (diagonal <= suma) {
+            return false; // No es diagonal dominante
+        }
+    }
+    return true; // Es diagonal dominante
+}

@@ -125,3 +125,69 @@ std::vector<double> gaussJordanElimination(Matrix& A, Matrix& b, bool mostrarPas
     
     return vectorSolucion;
 }
+/**
+ * @brief Resuelve un sistema de ecuaciones lineales mediante el método iterativo de Jacobi.
+ * 
+ * Este método es adecuado para sistemas grandes y se basa en la convergencia de las iteraciones.
+ * 
+ * @param A Matriz de coeficientes del sistema.
+ * @param b Vector columna de términos independientes.
+ * @return std::vector<double> Vector solución del sistema.
+ */
+std::vector<double> jacobiMethod(Matrix& A, Matrix& b) {
+    int numEcuations = A.getRows();
+    //Inicialización de los vectores solución y solución anterior
+    //El vector solución se inicializa con ceros y el vector solución anterior también se inicializa con ceros
+    std::vector<double> vectorSolucion(numEcuations, 0.0);
+    std::vector<double> vectorSolucionAnterior(numEcuations, 0.0);
+    //Constantes para el método iterativo
+    const double TOLERANCIA = 1e-6;
+    const int MAX_ITERACIONES = 500;
+
+    for(size_t iteracion = 0; iteracion < MAX_ITERACIONES; iteracion++) {
+        for (int row = 0; row < numEcuations; row++) {
+            double sum = sumaSinDiagonal(A, vectorSolucionAnterior, row);
+            //Suma de los elementos ya conocidos
+            vectorSolucionAnterior[row] = b.at(row, 0) - sum / A.at(row, row);
+        }
+        double maxError = calcularError(vectorSolucion, vectorSolucionAnterior);
+        vectorSolucion = vectorSolucionAnterior; // Actualiza la solución actual con la anterior
+        if (maxError < TOLERANCIA) {
+            break; // Si el error máximo es menor que la tolerancia, se considera convergido
+        }
+    }
+
+    return vectorSolucion;
+}
+/**
+ * @brief Resuelve un sistema de ecuaciones lineales mediante el método iterativo de Gauss-Seidel.
+ * 
+ * Este método es adecuado para sistemas grandes y se basa en la convergencia de las iteraciones.
+ * 
+ * @param A Matriz de coeficientes del sistema.
+ * @param b Vector columna de términos independientes.
+ * @return std::vector<double> Vector solución del sistema.
+ */
+std::vector<double> gaussSeidelMethod(Matrix& A, Matrix& b) {
+    int numEcuations = A.getRows();
+    //El vector solución se inicializa con ceros
+    std::vector<double> vectorSolucion(numEcuations, 0.0);
+    //Constantes para el método iterativo
+    const double TOLERANCIA = 1e-6; 
+    const int MAX_ITERACIONES = 500;
+    for (size_t iteracion = 0; iteracion < MAX_ITERACIONES; iteracion++)
+    {
+        std::vector<double> vectorSolucionAnterior = vectorSolucion; // Guarda la solución anterior
+        for (int row = 0; row < numEcuations; row++) {
+            double sum = sumaSinDiagonal(A, vectorSolucion, row);
+            //Suma de los elementos ya conocidos
+            vectorSolucion[row] = (b.at(row, 0) - sum) / A.at(row, row);
+        }
+        double maxError = calcularError(vectorSolucion, vectorSolucionAnterior);
+        if (maxError < TOLERANCIA) {
+            break; // Si el error máximo es menor que la tolerancia, se considera convergido
+        }
+    }
+    
+    return vectorSolucion;
+}

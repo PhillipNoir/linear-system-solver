@@ -44,6 +44,30 @@ std::vector<double> gaussElimination(Matrix& A, Matrix& b, bool mostrarPasos);
 std::vector<double> gaussJordanElimination(Matrix& A, Matrix&b, bool mostrarPasos);
 
 /**
+ * @brief Resuelve un sistema de ecuaciones lineales mediante el método de Jacobi.
+ * 
+ * Esta función implementa el método iterativo de Jacobi para resolver sistemas de ecuaciones lineales.
+ * El método es adecuado para sistemas grandes y se basa en la convergencia de las iteraciones.
+ * 
+ * @param A Matriz cuadrada de coeficientes del sistema.
+ * @param b Vector columna de términos independientes.
+ * @return std::vector<double> Vector solución del sistema.
+ */
+std::vector<double> jacobiMethod(Matrix& A, Matrix& b);
+
+/**
+ * @brief Resuelve un sistema de ecuaciones lineales mediante el método de Gauss-Seidel.
+ * 
+ * Esta función implementa el método iterativo de Gauss-Seidel para resolver sistemas de ecuaciones lineales.
+ * El método es adecuado para sistemas grandes y se basa en la convergencia de las iteraciones.
+ * 
+ * @param A Matriz cuadrada de coeficientes del sistema.
+ * @param b Vector columna de términos independientes.
+ * @return std::vector<double> Vector solución del sistema.
+ */
+std::vector<double> gaussSeidelMethod(Matrix& A, Matrix& b);
+
+/**
  * @brief Imprime un sistema de ecuaciones lineales en forma matricial.
  * 
  * Esta funcion muestra en consola la matriz de coeficientes 'A' y el vector de constantes 'b'

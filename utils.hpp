@@ -39,4 +39,31 @@ void forwardElimination(Matrix& A, Matrix& b, bool mostrarPasos);
  * @throws std::runtime_error Si se detectan pivotes demasiado pequeños o inconsistencias numéricas.
  */
 void backwardElimination(Matrix& A, Matrix& b, bool mostrarPasos);
+
+/**
+ * @brief Calcula la suma de los productos de los coeficientes por los valores de la solución, excluyendo el término diagonal.
+ *
+ * Esta función se utiliza en el método iterativo de Jacobi para calcular la suma de los productos
+ * de los coeficientes por los valores de la solución, excluyendo el término diagonal.
+ *
+ * @param A Matriz de coeficientes del sistema.
+ * @param vectorSolucion Vector solución actual.
+ * @param i Índice de la fila actual.
+ * @return double Suma de los productos excluyendo el término diagonal.
+ */
+double sumaSinDiagonal(Matrix& A, const std::vector<double>& vectorSolucion, int i);
+
+/**
+ * @brief Calcula el error entre dos vectores de solución.
+ *
+ * Esta función compara el vector de solución actual con el vector de solución anterior
+ * para determinar la convergencia del método iterativo.
+ *
+ * @param vectorSolucion Vector solución actual.
+ * @param vectorAnterior Vector solución del paso anterior.
+ * @return double Error calculado como la norma L2 de la diferencia entre los dos vectores.
+ */
+double calcularError(const std::vector<double>& vectorSolucion, const std::vector<double>& vectorAnterior);
+
+bool esDiagonalDominante(Matrix& A);
 #endif
